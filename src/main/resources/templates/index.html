@@ -10,7 +10,7 @@
 
         .column label {
             display: inline-block;
-            width: 100px;
+            width: 125px;
         }
 
         .column input,
@@ -26,8 +26,7 @@
     <div class="column">
         <h3>Rank I selection:</h3>
         <label>Pawns:</label>
-        <select name="pawn">
-            <option value=0>0</option>
+        <select name="pawn" th:field="*{selectedPieces.pawn}">
             <option value=4>4</option>
             <option value=5>5</option>
             <option value=6>6</option>
@@ -35,13 +34,13 @@
             <option value=8>8</option>
         </select><br>
         <label>Peasants:</label>
-        <select name="peasant">
+        <select name="peasant"th:field="*{selectedPieces.peasant}">
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
         </select><br>
         <label>Soldiers:</label>
-        <select name="soldier">
+        <select name="soldier"th:field="*{selectedPieces.soldier}">
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
@@ -51,65 +50,65 @@
     <div class="column">
         <h3>Rank II selection:</h3>
         <label>Rooks:</label>
-        <select name="rook">
+        <select name="rook"th:field="*{selectedPieces.rook}">
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
         </select><br>
         <label>Knights:</label>
-        <select name="knight">
+        <select name="knight"th:field="*{selectedPieces.knight}">
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
         </select><br>
         <label>Bishops:</label>
-        <select name="bishop">
+        <select name="bishop"th:field="*{selectedPieces.bishop}">
             <option value=0>0</option>
             <option value=1>1</option>
             <option value=2>2</option>
         </select><br>
         <label>Catapult:</label>
-        <select name="catapult">
+        <select name="catapult"th:field="*{selectedPieces.catapult}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Chamberlain:</label>
-        <select name="chamberlain">
+        <select name="chamberlain"th:field="*{selectedPieces.chamberlain}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Courtesan:</label>
-        <select name="courtesan">
+        <select name="courtesan"th:field="*{selectedPieces.courtesan}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Herald:</label>
-        <select name="herald">
+        <select name="herald"th:field="*{selectedPieces.herald}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Inquisitor:</label>
-        <select name="inquisitor">
+        <select name="inquisitor"th:field="*{selectedPieces.inquisitor}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Lancer:</label>
-        <select name="lancer">
+        <select name="lancer"th:field="*{selectedPieces.lancer}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Pontiff:</label>
-        <select name="pontiff">
+        <select name="pontiff"th:field="*{selectedPieces.pontiff}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Thief:</label>
-        <select name="thief">
+        <select name="thief"th:field="*{selectedPieces.thief}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
         <label>Tower:</label>
-        <select name="tower">
+        <select name="tower"th:field="*{selectedPieces.tower}">
             <option value=0>0</option>
             <option value=1>1</option>
         </select><br>
@@ -117,26 +116,17 @@
 
     <div class="column">
         <h3>Rank III selection:</h3>
-        <label>Queen:</label>
-        <select name="queen">
-            <option value=0>0</option>
-            <option value=1>1</option>
+        <label>Queen or Jester:</label>
+        <select name="queen"th:field="*{selectedPieces.queen}">
+            <option value=0>Queen</option>
+            <option value=1>Jester</option>
         </select><br>
-        <label>King:</label>
-        <select name="king">
-            <option value=0>0</option>
-            <option value=1>1</option>
+        <label>King or Regent:</label>
+        <select name="king"th:field="*{selectedPieces.king}">
+            <option value=0>King</option>
+            <option value=1>Regent</option>
         </select><br>
-        <label>Jester:</label>
-        <select name="jester">
-            <option value=0>0</option>
-            <option value=1>1</option>
-        </select><br>
-        <label>Regent:</label>
-        <select name="regent">
-            <option value=0>0</option>
-            <option value=1>1</option>
-        </select><br>
+
     </div>
 
     <div class="column">
