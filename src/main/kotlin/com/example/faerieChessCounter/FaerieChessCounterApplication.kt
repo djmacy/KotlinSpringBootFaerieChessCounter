@@ -84,14 +84,13 @@ class ChessController {
 
 		model.addAttribute("total_points", totalPoints)
 		model.addAttribute("remaining_points", remainingPoints)
-
 		//store the selected pieces counts
 		val selectedPieces = SelectedPieces(
 			pawn, peasant, soldier, rook, knight, bishop, catapult, chamberlain,
 			courtesan, herald, inquisitor, lancer, pontiff, thief, tower, queen, king,
 		)
-		session.setAttribute("selectedPieces", selectedPieces)
 
+		session.setAttribute("selectedPieces", selectedPieces)
 		return "result"
 	}
 }
