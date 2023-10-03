@@ -2,23 +2,7 @@
 <html>
 <head>
     <title>Faerie Chess Counter</title>
-    <style>
-        .column {
-            float: left;
-            width: 33%;
-        }
-
-        .column label {
-            display: inline-block;
-            width: 125px;
-        }
-
-        .column input,
-        .column select {
-            display: inline-block;
-            width: 100px;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 <body>
 <h1>Faerie Chess Counter</h1>
@@ -148,59 +132,6 @@
     <input type="submit" value="Calculate Points">
 </form>
 </body>
-<script>
-        function updateRank1Pieces() {
-            var pawnValue = parseInt(document.getElementById('pawn').value);
-            var soldierValue = parseInt(document.getElementById('soldier').value);
-            var peasantValue = parseInt(document.getElementById('peasant').value);
+<script src="/script.js"></script>
 
-            var totalRank1Pieces = pawnValue + peasantValue + soldierValue;
-            var maxRank1Pieces = 8;
-
-            var rank1Label = document.getElementById('rank1Label');
-            rank1Label.textContent = "Rank I Pieces Left: " + (maxRank1Pieces - totalRank1Pieces);
-        }
-
-        function updateRank2Pieces() {
-            var rookValue = parseInt(document.getElementById('rook').value);
-            var bishopValue = parseInt(document.getElementById('bishop').value);
-            var knightValue = parseInt(document.getElementById('knight').value);
-            var chamberlainValue = parseInt(document.getElementById('chamberlain').value);
-            var courtesanValue = parseInt(document.getElementById('courtesan').value);
-            var catapultValue = parseInt(document.getElementById('catapult').value);
-            var heraldValue = parseInt(document.getElementById('herald').value);
-            var inquisitorValue = parseInt(document.getElementById('inquisitor').value);
-            var lancerValue = parseInt(document.getElementById('lancer').value);
-            var pontiffValue = parseInt(document.getElementById('pontiff').value);
-            var thiefValue = parseInt(document.getElementById('thief').value);
-            var towerValue = parseInt(document.getElementById('tower').value);
-
-            var totalRank2Pieces = rookValue + bishopValue + knightValue + chamberlainValue + courtesanValue +
-                catapultValue + heraldValue + inquisitorValue + lancerValue + pontiffValue + thiefValue + towerValue;
-            var maxRank2Pieces = 6;
-            var rank2Label = document.getElementById('rank2Label');
-            rank2Label.textContent = "Rank II Pieces Left: " + (maxRank2Pieces - totalRank2Pieces);
-        }
-
-        window.addEventListener('load', updateRank1Pieces);
-        window.addEventListener('load', updateRank2Pieces);
-
-        document.getElementById('pawn').addEventListener('change', updateRank1Pieces);
-        document.getElementById('peasant').addEventListener('change', updateRank1Pieces);
-        document.getElementById('soldier').addEventListener('change', updateRank1Pieces);
-
-        document.getElementById('rook').addEventListener('change', updateRank2Pieces);
-        document.getElementById('bishop').addEventListener('change', updateRank2Pieces);
-        document.getElementById('knight').addEventListener('change', updateRank2Pieces);
-        document.getElementById('catapult').addEventListener('change', updateRank2Pieces);
-        document.getElementById('courtesan').addEventListener('change', updateRank2Pieces);
-        document.getElementById('chamberlain').addEventListener('change', updateRank2Pieces);
-        document.getElementById('herald').addEventListener('change', updateRank2Pieces);
-        document.getElementById('inquisitor').addEventListener('change', updateRank2Pieces);
-        document.getElementById('lancer').addEventListener('change', updateRank2Pieces);
-        document.getElementById('pontiff').addEventListener('change', updateRank2Pieces);
-        document.getElementById('thief').addEventListener('change', updateRank2Pieces);
-        document.getElementById('tower').addEventListener('change', updateRank2Pieces);
-
-</script>
 </html>
