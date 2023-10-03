@@ -20,6 +20,29 @@ fun main(args: Array<String>) {
 @Controller
 @RequestMapping("/")
 class ChessController {
+	val pawnValue = 1
+	val peasantValue = 2
+	val soldierValue = 3
+	val rookValue = 9
+	val bishopValue = 6
+	val knightValue = 4
+	val catapultValue = 3
+	val courtesanValue = 6
+	val chamberlainValue = 6
+	val heraldValue = 6
+	val inquisitorValue = 8
+	val lancerValue = 5
+	val pontiffValue = 8
+	val thiefValue = 5
+	val towerValue = 10
+	val queenValue = 12
+	val kingValue = 0
+	val jesterValue = 12
+	val regentValue = 15
+
+	val beginnerPoints = 65
+	val intermediatePoints = 70
+	val advancedPoints = 75
 
 	@GetMapping("/")
 	fun home(model: Model, session: HttpSession): String {
@@ -54,30 +77,29 @@ class ChessController {
 		model: Model
 	): String {
 		//technically it does not matter for queen and jester because they are worth the same
-		var totalPoints = if (queen == 0) 12 else 12
-		totalPoints += if (king == 0) 0 else 15
+		var totalPoints = if (queen == 0) queenValue else jesterValue
+		totalPoints += if (king == 0) kingValue else regentValue
 		totalPoints +=
-				pawn * 1 +
-				peasant * 2 +
-				soldier * 3 +
-				rook * 9 +
-				knight * 4 +
-				bishop * 6 +
-				catapult * 3 +
-				chamberlain * 6 +
-				courtesan * 6 +
-				herald * 6 +
-				inquisitor * 8 +
-				lancer * 5 +
-				pontiff * 8 +
-				thief * 5 +
-				tower * 10
-
+				pawn * pawnValue +
+				peasant * peasantValue +
+				soldier * soldierValue +
+				rook * rookValue +
+				knight * knightValue +
+				bishop * bishopValue +
+				catapult * catapultValue +
+				chamberlain * chamberlainValue +
+				courtesan * courtesanValue +
+				herald * heraldValue +
+				inquisitor * inquisitorValue +
+				lancer * lancerValue +
+				pontiff * pontiffValue +
+				thief * thiefValue +
+				tower * towerValue
 
 		val difficulties = mapOf(
-			"Beginner" to 65,
-			"Intermediate" to 70,
-			"Advanced" to 75
+			"Beginner" to beginnerPoints,
+			"Intermediate" to intermediatePoints,
+			"Advanced" to advancedPoints
 		)
 		//If null 0
 		val remainingPoints = (difficulties[difficulty] ?: 0) - totalPoints
