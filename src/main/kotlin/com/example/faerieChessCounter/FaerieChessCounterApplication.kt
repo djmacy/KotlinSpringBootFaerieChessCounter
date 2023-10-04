@@ -10,6 +10,28 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 
+enum class pieceWorth(val value: Int) {
+	PAWN(1),
+	PEASANT(2),
+	SOLDIER(3),
+	ROOK(9),
+	KNIGHT(4),
+	BISHOP(6),
+	CATAPULT(3),
+	CHAMBERLAIN(6),
+	COURTESAN(6),
+	HERALD(6),
+	INQUISITOR(8),
+	LANCER(5),
+	PONTIFF(8),
+	THIEF(5),
+	TOWER(10),
+	QUEEN(12),
+	JESTER(12),
+	KING(0),
+	REGENT(15)
+}
+
 @SpringBootApplication
 class FaerieChessCounterApplication
 
@@ -20,25 +42,6 @@ fun main(args: Array<String>) {
 @Controller
 @RequestMapping("/")
 class ChessController {
-	val pawnValue = 1
-	val peasantValue = 2
-	val soldierValue = 3
-	val rookValue = 9
-	val bishopValue = 6
-	val knightValue = 4
-	val catapultValue = 3
-	val courtesanValue = 6
-	val chamberlainValue = 6
-	val heraldValue = 6
-	val inquisitorValue = 8
-	val lancerValue = 5
-	val pontiffValue = 8
-	val thiefValue = 5
-	val towerValue = 10
-	val queenValue = 12
-	val kingValue = 0
-	val jesterValue = 12
-	val regentValue = 15
 
 	val beginnerPoints = 65
 	val intermediatePoints = 70
@@ -77,24 +80,24 @@ class ChessController {
 		model: Model
 	): String {
 		//technically it does not matter for queen and jester because they are worth the same
-		var totalPoints = if (queen == 0) queenValue else jesterValue
-		totalPoints += if (king == 0) kingValue else regentValue
+		var totalPoints = if (queen == 0) pieceWorth.QUEEN.value else pieceWorth.JESTER.value
+		totalPoints += if (king == 0) pieceWorth.KING.value else pieceWorth.REGENT.value
 		totalPoints +=
-				pawn * pawnValue +
-				peasant * peasantValue +
-				soldier * soldierValue +
-				rook * rookValue +
-				knight * knightValue +
-				bishop * bishopValue +
-				catapult * catapultValue +
-				chamberlain * chamberlainValue +
-				courtesan * courtesanValue +
-				herald * heraldValue +
-				inquisitor * inquisitorValue +
-				lancer * lancerValue +
-				pontiff * pontiffValue +
-				thief * thiefValue +
-				tower * towerValue
+				pawn * pieceWorth.PAWN.value +
+				peasant * pieceWorth.PEASANT.value +
+				soldier * pieceWorth.SOLDIER.value +
+				rook * pieceWorth.ROOK.value +
+				knight * pieceWorth.KNIGHT.value +
+				bishop * pieceWorth.BISHOP.value +
+				catapult * pieceWorth.CATAPULT.value +
+				chamberlain * pieceWorth.CHAMBERLAIN.value +
+				courtesan * pieceWorth.COURTESAN.value +
+				herald * pieceWorth.HERALD.value +
+				inquisitor * pieceWorth.INQUISITOR.value +
+				lancer * pieceWorth.LANCER.value +
+				pontiff * pieceWorth.PONTIFF.value +
+				thief * pieceWorth.THIEF.value +
+				tower * pieceWorth.TOWER.value
 
 		val difficulties = mapOf(
 			"Beginner" to beginnerPoints,
