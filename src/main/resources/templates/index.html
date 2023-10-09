@@ -3,8 +3,9 @@
 <head>
     <title>Faerie Chess Counter</title>
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <script src="/script.js"></script>
 </head>
-<body>
+<body onload="onLoad()">
 <h1>Faerie Chess Counter</h1>
 <form action="/calculate" method="POST">
     <div class="column">
@@ -31,7 +32,6 @@
         </select><br>
         <div id = "rank1Label">Rank I Pieces Left: 4</div>
     </div>
-
     <div class="column">
         <h3>Rank II selection:</h3>
         <label>Rooks:</label>
@@ -98,9 +98,7 @@
             <option value=1>1</option>
         </select><br>
         <div id = "rank2Label">Rank II Pieces Left: 6</div>
-
     </div>
-
     <div class="column">
         <h3>Rank III selection:</h3>
         <label>Queen or Jester:</label>
@@ -114,10 +112,7 @@
             <option value=1>Regent</option>
         </select><br>
         <div id = "rank3Label">Rank III Pieces Left: 0</div>
-
-
     </div>
-
     <div class="column">
         <h3>Difficulty:</h3>
         <select name="difficulty">
@@ -126,12 +121,8 @@
             <option value="Advanced">Advanced</option>
         </select>
     </div>
-
     <br style="clear: both;"><br>
-
     <input type="submit" value="Calculate Points">
 </form>
 </body>
-<script src="/script.js"></script>
-
 </html>
